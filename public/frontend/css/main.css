@@ -1,0 +1,548 @@
+/* ###  #b1ce50 ### */
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: none
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 145px;
+    font-size: .85em;
+    background: #f6f6f6
+}
+
+input {
+    text-align: right
+}
+input[type="text"] {
+    text-align: left
+}
+button {
+    cursor: pointer;
+}
+input[name = "nombanque"], input[name = "nomTitulaire"] {
+    width: 11em
+}
+input[name = "nocheque"] {
+    width: 6em
+}
+
+/* ###########  img logo ########### */
+
+#logo {
+    margin: 20px 0 0;
+    width: 105px;
+}
+
+/* #  page  template : # */
+/* ###  container, header, aside-menu, main-content, footer ### */
+
+#container {
+    display: flex;
+    flex-flow: row wrap
+}
+
+#container > * {
+    flex: 1 100%
+}
+
+#aside-menu {
+    flex: 1;
+}
+#main-content {
+    flex: 5;
+}
+
+#header {
+    height: 20px;
+    background: linear-gradient(rgb(76, 189, 39), rgb(204, 255, 175));
+    box-shadow: 1px 1px 2px rgb(206, 205, 205)
+}
+
+#main-content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center
+}
+
+#aside-menu {
+    text-align: center;
+    padding: 0 1em 1em
+}
+
+footer {
+    width: 100%;
+    height: 138px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 138px;
+    background: url(../img/leave.png) 0 0 no-repeat
+}
+
+/* ### inside aside-menu ### */
+
+
+#getout {
+    margin: 1em auto 0 auto;
+    display: block;
+    width: 7em;
+    padding: .5em 0;
+    font-size: 1.4em;
+    color: #f2ffe7;
+    border-radius: 5px;
+    text-decoration: none;
+    background: #4f8caf
+}
+#getout:hover {
+    color: #d5fdb4;
+    background: #8bb6cf;
+    box-shadow: 2px 2px 15px rgb(148, 148, 148)
+
+}
+#logout > p {
+    font-size: 1.2em;
+    margin: .4em 0;
+    color: rgb(75, 75, 75)
+}
+#logout > p span {
+    font-weight: bold
+}
+
+.aside-menu-bloc {
+    margin: 3em 0 2em 0;
+}
+.aside-menu-bloc h3 {
+    padding: .5em 0;
+    margin: 0 0 .8em;
+    font-size: 1.4em;
+    background:#ececec
+}
+.aside-menu-bloc ul {
+    text-align: left;
+    list-style: none;
+}
+.aside-menu-bloc li {
+    padding: 0 0 1em .5em;
+}
+.aside-menu-bloc a {
+    font-size: 1.2em;
+
+}
+#menu_amapien {
+    margin: 0 0 1.5em
+}
+#menu_amapien h3 {
+    color: white;
+    background-color: rgb(65, 150, 16)
+}
+#menu_amapien a {
+    color: rgb(89, 185, 33)
+}
+#menu_amapien a:hover {
+    color: rgb(64, 143, 18)
+}
+
+#menu_referent {
+    margin: 0 0 1.5em
+}
+#menu_referent h3 {
+    color: white;
+    background-color: rgb(150, 76, 16)
+}
+#menu_referent a {
+    color: rgb(150, 76, 16)
+}
+#menu_referent a:hover {
+    color: rgb(150, 76, 16)
+}
+
+
+#menu_admin {
+    margin: 0 0 1.5em
+}
+#menu_admin h3 {
+    color: white;
+    background-color: rgb(207, 23, 17)
+}
+#menu_admin a {
+    color: rgb(207, 23, 17);
+}
+#menu_admin a:hover {
+    color: rgb(207, 23, 17);
+}
+
+#menu_amapien, #menu_referent, #menu_admin {
+    border: 1px solid rgb(187, 187, 187);
+}
+/* ###  end  ### */
+
+/* ###  page panier : main-content  ### */
+
+.page-title {
+    width: 100%;
+    text-align: center;
+    padding: 1.3em;
+    margin: 0 0 1.5%;
+}
+.page-title h1 {
+    text-shadow: 1px 1px rgb(156, 156, 156);
+    font-size: 1.8em;
+    padding: .8em 0;
+    margin: 0 5em;
+    color: rgb(70, 158, 12);
+    border-radius: 9px;
+    background: linear-gradient(rgb(132, 250, 93), rgb(204, 255, 175));
+}
+
+.bloc-category {
+    width: 24%;
+    display: flex;
+    flex-flow: column;
+    margin: 1em 1.3em;
+    padding: 1.3em;
+    border-radius: 8px 8px;
+    border: 3px solid rgb(219, 219, 219);
+    background: #eeeded;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+@media screen and (max-width: 720px) {
+
+    .bloc-category {
+        width: 70%;
+        display: flex;
+        flex-flow: column;
+        margin: 1em 1.3em;
+        padding: 1.3em;
+        border-radius: 8px 8px;
+        border: 3px solid rgb(219, 219, 219);
+        background: #eeeded;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+    }
+}
+
+.bloc-category-nodisplay {
+    display: flex;
+    flex-flow: column;
+    margin: 1em 1.3em;
+    padding: 1.3em;
+    border-radius: 8px 8px;
+    border: 3px solid rgb(219, 219, 219);
+    background: #eeeded;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* .bloc-category:hover {
+    animation: zoom 500ms;
+}
+@keyframes zoom {
+
+    20% {transform: scale(1.02)}
+    30% {transform: scale(1.04)}
+    40% {transform: scale(1.06)}
+    50% {transform: scale(1.08)}
+    60% {transform: scale(1.06)}
+    80% {transform: scale(1.04)}
+    100% {transform: scale(1)}
+} */
+
+/* window select products */
+
+table.centered {
+    width: auto;
+    border-spacing: 0;
+    color: #2b333a
+}
+
+tr#entete {
+    /* padding: 1.5em 1.5em; */
+    background: rgb(187, 187, 187);
+    color:rgb(59, 59, 59);
+}
+tr#entete  > th {
+    padding: .5em 1em;
+}
+tr.displayCat:nth-child(n) {
+    background: rgb(228, 228, 228);  
+}
+tr.displayCat:nth-child(2n) {
+    background: rgb(216, 216, 216)
+}
+
+.title-bloc-category {
+    text-align: center;
+    margin: 0 0 .5em;
+    padding: .3em .6em;
+    font-size: 1.4em;
+    color: rgb(33, 70, 4);
+    background: #dbdbdb
+}
+.img-bloc-category {
+    align-self: center;
+    width: 60% !important;
+    height: auto !important;
+    /* width: 180px;
+    height: 120px */
+}
+
+.link-bloc-category {
+    font-size: 1.1em;
+    color: rgb(87, 82, 82);
+    font-style: oblique;
+    margin-bottom: .5em     
+} 
+.link-bloc-category:hover {
+    color: rgb(70, 158, 12);     
+}
+.list-bloc-category > ul  {
+    list-style: none;
+    padding: 5px 0 0;
+}
+li.list-category  {
+    margin: 0 0 5px;
+}
+
+.bloc-pdts, .noDisplayPdt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding: 2em 0;
+    /* border-radius: 10px 10px; */
+    /* border: 3px solid rgb(151, 212, 93); */
+    /* background: #b8f08a; */
+    background:rgba(70, 70, 70, 0.5);
+    opacity: 1;
+}
+.list-categorie {
+    border-bottom: 1px solid gray;
+    margin: 0 0 .8em
+}
+
+.list-categorie > td {
+    font-size: 1em;
+    padding: .4em;
+    text-align: center;
+}
+.list-categorie > td > input.Qt {
+    text-align: center;
+    width: 2.2em
+}
+.list-categorie > td > input.Px {
+    display: none
+ }
+.list-categorie > td > input.Tot {
+    width: 5em
+ }
+ span.moins, span.plus {
+    cursor: pointer;
+    padding: 0 .3em;
+    text-align: center; 
+    font-size: 1.4em;
+    color: white;
+    background: rgb(61, 61, 61)
+ }
+
+.noDisplay {
+    display: none
+}
+
+.btndown {
+    position: relative;
+    height: 1.3em;
+}
+
+.shutdowncat {
+    padding: 0 1.8em 0 0;
+    text-align: center
+}
+.shutdowncat > a {
+    display: inline-block;
+    width: 1.1em;
+    height: 1.1em;
+    top: 0;
+    right: 1.5em;
+    text-transform: uppercase;
+    font-size: 2.3em;
+    color:  rgb(236, 222, 218);
+    border: 1px solid  black    /*rgb(207, 58, 13)*/;
+    border-radius: 50%;
+    background: rgb(31, 31, 31)/* rgb(207, 58, 13)*/;
+    text-decoration: none;
+    box-shadow: 2px 2px 8px 0 rgba(53, 53, 53, 0.2), 0 6px 20px 0 rgba(63, 63, 63, 0.19);
+}
+
+
+.shutdown {
+    padding: .4em;
+    font-size: 1.1em;
+    color: white;
+    background: #147421;
+    border-radius: 6px 6px
+}
+.shutdown:hover {
+    background: #1eb132;
+}
+.saveContrat, .validerContrat, .validerCommande {
+    padding: .4em;
+    font-size: 1.2em;
+    color: white;
+    background: #113b63;
+    border-radius: 6px 6px
+
+}
+.saveContrat:hover, .validerContrat:hover, .validerCommande:hover {
+    background: #1eb132;
+}
+button.saveContrat:disabled {
+    background: whitesmoke;
+    color: rgb(216, 215, 214)
+}
+button.validerCommande:disabled, button.validerContrat:disabled {
+    background: whitesmoke;
+    color: rgb(216, 215, 214)
+}
+p.listeContrat {
+    font-size: 1.3em
+}
+p.listeContrat > span {
+    margin: 0 1em 0 0;
+    font-size: 1.1em
+}
+p.sommeTotaux {
+    font-size: 1.5em;
+    margin: .3em 0 1.3em 0
+}
+.listeCheque {
+    margin: 1.1em 0
+}
+.listeCheque > p  {
+    text-align: right;
+    margin: .3em 0
+}
+.listeCheque > p > span {
+    margin: 0 1em 0 0
+}
+
+/*
+liste des contrats
+*/
+
+#content-contrat {
+    width: 75%;
+    padding: 0 12,5%;
+    /* display: flex;
+    flex-flow: row wrap;
+    justify-content: center; */
+}
+/* .pdtCat {
+    background: white
+} */
+
+.contratCat:nth-child(n) {
+    /* width: 33%; */
+    border: 2px solid rgb(189, 189, 189);
+    border-radius: 5px;
+    color: rgb(24, 36, 61);
+    background: rgb(241, 241, 241);
+    box-shadow:2px 2px 6px rgb(180, 180, 180);
+    margin: 1.2em 0 1.7em;
+    padding: 0 .8em
+}
+.contratCat:nth-child(2n) {
+    border: 2px solid rgb(189, 189, 189);
+    border-radius: 5px;
+    color: rgb(38, 61, 24);
+    background: rgb(239, 240, 238);
+    box-shadow:2px 2px 6px rgb(180, 180, 180);
+    margin: 1.2em 0 1.7em;
+    padding: 0 .8em
+} 
+table.pdtCat {
+    width: 100%;
+    font-size: 1.1em;
+    margin: .2em 0 0
+}
+table.pdtCatTotals {
+    width: 100%;
+    font-size: 1.3em;   
+    margin: .3em 0 0;
+    /* border-bottom: 1px solid gray; */
+}
+/* tr {
+    border-bottom: 1px solid rgb(190, 190, 190)
+} */
+td.qte {
+    width: 10%;
+    color:rgb(6, 24, 63)
+}
+td.nomPdt  {
+    width: 65%
+}
+td.totalCat {
+    width: 15%
+}
+td.btSupp {
+    width: 10%
+}
+td.bouttonAjSup {
+    width: 18%
+}
+ 
+td.titreCat {
+    width: 67%;
+    font-weight: bold
+}
+td.gTotal {
+    width: 33%;  
+}
+td.ajoutPdt {
+    width: 100%;
+    text-align: right
+}
+.totalCat > input, input.gTotal {
+    width: 5em
+}
+tr.tabgTotal {
+    background: rgb(206, 206, 206);
+    color: rgb(41, 61, 105)
+}
+input[name='total'] {
+    width: 6em
+}
+input[name='Totals'] {
+    width: 6em
+}
+.btAjouterPdt {
+    font-weight: bold;
+    text-decoration: none
+
+}
+p.saveCheques {
+    margin: 0 .7em 0 0;
+    font-size: 1.3em;
+    font-weight: bold;
+    /* display: none */
+}
+
+/* .CommandCheqNone {
+    
+} */
+.contratCheqNone, .tot {
+    display: none
+}
+span.asterix {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: red
+}
+#modifSubmit {
+    text-align: center
+}

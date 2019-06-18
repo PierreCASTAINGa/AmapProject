@@ -1,0 +1,116 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %} {{ section_title }} {% endblock %}
+
+{% block body %}
+<div id="container">
+
+    <div id="header" nameuser="{{ app.user.nom }}" iduser="{{ app.user.id }}"></div>
+
+    {{ parent() }}
+
+    <div id="main-content">
+
+        <div class="page-title">
+            <h1>Commander en choisissant vos produits</h1>
+        </div>
+        {% for superCat in listeSuperCategorie %}
+
+        <div class="bloc-category">
+            <h3 class="title-bloc-category">{{ superCat.nom }}</h3>
+            <img class="img-bloc-category" src="{{ asset(superCat.urlImg) }}" alt="{{ superCat.nom }}">
+
+
+            <div class="list-bloc-category">
+                <ul>
+                    {% for cat in superCat.categories %}
+                    <li class="list-category" nbrecheque="{{ cat.nbCheque }}" idcategory="{{ cat.id }}" nomcategory="{{ cat.nom }}" nsc="{{ superCat.nom }}">{#<span>{{
+                            cat.id }} : </span>#}<a class="link-bloc-category" href="#" title=""> {{ cat.nom }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div> <!-- main-content -->
+
+</div> <!-- container -->
+
+
+
+<div class="noDisplayPdt">
+        <p class="shutdowncat" title="Fermer fenêtre"><a href="#" title="Fermer la fenêtre">x</a></p>
+
+    {# <div class="btndown"><button type="submit" class="shutdown">Fermer la fenêtre</button></div> #}
+    <div class="bloc-category-nodisplay">
+
+        <div class="list-bloc-category">
+
+            <form action="{{ asset('frontend/php/savecontrat.php') }}" method="POST">
+
+                <table class="centered">
+                    <thead>
+                        <tr id="entete">
+                            <th>Libellé</th>
+                            <th>Unité</th>
+                            <th>Prix / unité</th>
+                            <th>Nbre de lots commandés</th>
+                            <th>Nbre de livraisons restantes</th>
+                            <th>Début livraison</th>
+                            <th>Fin livraison</th>
+                            <th>Fréquence des livraisons</th>
+                            <th>Total</th>
+                            <th class="noDisplay">Id</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for pdts in produit %}
+                        <tr class="list-categorie" idcat="{{ pdts.categorieid }}">
+                            <td class="nomPdt" idpdt="{{ pdts.id }}">{{ pdts.nom }}</td>
+                            <td>{{ pdts.unite }}</td>
+                            <td><input class="Px" value="{{ pdts.prix }}" type="number">{{ pdts.prix }} €</td>
+                            {# <td><span class="moins">-</span><input class="Qt" value="{{ pdts.quantiteMin }}" type="number"><span
+                                    class="plus">+</span></td> #}
+                            <td class="qtite"><span class="moins">-</span><input class="Qt" value="0" type="number"
+                                    name="Qtite" readonly><span class="plus">+</span></td>
+                            <td>{{ pdts.nombreDeLivraisonsRestantes }}</td>
+                            <td>{{ pdts.periodeDebut }}</td>
+                            <td>{{ pdts.periodeFin }}</td>
+                            <td>{{ pdts.periodicite }}</td>
+                            <td><input class="Tot" type="number" name="total" value="0" readonly></td>
+                            {# <td class="pdtId noDisplay">{{ pdts.id }}</td> #}
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td>
+                                <input type="hidden" name="userId" value="{{ app.user.id }}">
+                                <input type="hidden" name="jsonFile" class="jsonFile" value="">
+                                <input type="hidden" name="jsonFileCheq" class="jsonFileCheq" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:1em 0;text-align:right" colspan="10"><span style="font-size:1.2em">Total : </span><input style="width:5.5em" class="globalTotal" value="0" type="number" onchange="desactiv(this.value)" readonly></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center" colspan="10"><button type="submit" class="saveContrat shutdown" disabled>Enregistrer</button></td>
+                        </tr>
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('frontend/js/choicePdts.js') }}"></script>
+{% endblock %}

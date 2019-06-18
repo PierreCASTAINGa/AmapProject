@@ -1,0 +1,43 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %} {{ section_title }} {% endblock %}
+
+{% block body %}
+<div id="container">
+
+    <div id="header" nameuser="{{ app.user.nom }}" userid="{{ app.user.id}}"></div>
+
+    {{ parent() }}
+
+    <div id="main-content">
+
+        <div class="page-title">
+            <h1>Verifier et envoyer définitivement ma commande</h1>
+        </div>
+
+        <div id="content-contrat">
+                <form id="main-content-form" action="{{ asset('frontend/php/savecommande.php') }}" method="POST">
+                    <div id="content-contrat-intra">
+    
+                    </div>
+                    <div id="commandeSubmit">
+                            <input type="hidden" class="jsonFile" name="jsonFile" value="">
+                            <input type="hidden" class="jsonFileUser" name="jsonFileUser" value="">
+                            <input type="hidden" name="userId" value="{{ app.user.id }}">
+                            <button type="submit" class="validerCommande">J'envoie ma commande<span class="asterix"> *</span></button>
+                            <p><span class="asterix">* </span>action définitive</p>
+                        </div>
+                </form>
+
+        </div>
+
+    </div> <!-- main-content -->
+
+</div> <!-- container -->
+
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('frontend/js/fetchCommande.js') }}"></script>
+{% endblock %}

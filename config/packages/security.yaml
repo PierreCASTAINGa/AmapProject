@@ -1,0 +1,81 @@
+security:
+
+    role_hierarchy:
+        ROLE_REFERENT: [ROLE_AMAPIEN]
+        ROLE_ADMIN: [ROLE_AMAPIEN]
+
+    encoders:
+        
+        # Our user class and the algorithm we'll use to encode passwords
+        # https://symfony.com/doc/current/security.html#c-encoding-the-user-s-password
+        
+        App\Entity\User:
+            algorithm: bcrypt
+        # Symfony\Component\Security\Core\User\User: bcrypt
+
+    providers:
+
+        # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+        # In this example, users are stored via Doctrine in the database
+        # To see the users at src/App/DataFixtures/ORM/LoadFixtures.php
+        # To load users from somewhere else: https://symfony.com/doc/current/security/custom_provider.html
+        
+        database_users:
+            entity: { 
+                class: App\Entity\User,
+                property: identifiant
+                }
+
+        #in_memory: { memory: ~ }
+        # in_memory: 
+        #     memory:
+        #         users:
+        #             Pierre:
+        #                 password: $2y$13$GVYOBVJkDLLKSx0SABiGROENXur83k/FwvhhivKcpbo3no/1GCUfK
+        #                 roles: ROLE_ADMIN
+
+        # from_database :
+        #     entity: { class: App\Entity\User, property: identifiant } 
+    
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+
+            # this firewall applies to all URLs
+            pattern: ^/
+            
+            anonymous: true
+            #  security: true
+
+            # activate different ways to authenticate
+
+            # http_basic: true
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: true
+            # https://symfony.com/doc/current/security/form_login_setup.html
+        # secured_area:
+
+        #     pattern: ^/
+
+            form_login:
+                check_path: login
+                login_path: login   
+                # csrf_token_generator: security.csrf.token_manager
+                # success_handler: redirect.after.login
+                default_target_path: panier
+
+            logout:
+                path: secured_logout
+                target: index
+
+            
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/panier, roles: ROLE_AMAPIEN }
+        # - { path: ^/panier, roles: ROLE_REFERENT }
+        # - { path: ^/panier, roles: ROLE_ADMIN }

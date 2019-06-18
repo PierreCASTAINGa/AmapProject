@@ -1,0 +1,139 @@
+* {
+    padding: 0;
+    margin: 0;
+    outline: none
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body#login {
+    margin-bottom: 145px;
+    font-size: .85em;
+    background: url(../img/arbre.png) 90% 35px no-repeat, url(../img/logo.png) 25px 20px no-repeat #f6f6f6
+}
+
+/* ###########  media query ########### */
+
+@media screen and (max-width:870px) {
+    body#login {
+        background: url(../img/logo.png) 5px 2px no-repeat #f6f6f6
+    }
+
+}
+
+/* ###########  page accueil ########### */
+
+.form_login, .form_inscription {
+    position: relative;
+    padding: 1.5em;
+    width: 50%;
+    margin: 9% 0 0 25%;
+    border: 6px solid white;
+    border-radius: 20px 20px;
+    box-shadow: 2px 2px 15px #b6b6b6
+        /* background: rgb(173, 245, 155, 0,4) */
+}
+
+.form_login::after {
+    content: "";
+    background-color: #b1e020;
+    /* background-color: linear-gradient(rgb(20, 116, 33), rgb(31, 185, 52)); */
+    opacity: 0.4;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+#escargot {
+    position: absolute;
+    margin: -75px 0 0 35%;
+    width: 80px;
+    height: 56px;
+    background: url(../img/escargot_trans.png) no-repeat
+}
+
+.form_container li {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: whitesmoke;
+    padding: .3em;
+    border-radius: 6px;
+    background: red
+}
+
+button {
+    margin: 1.1em 0 0 40%;
+    border-radius: 12px 12px;
+    text-shadow: 1px 1px 2px rgb(34, 66, 34);
+    color: white;
+    font-size: 1.3em;
+    padding: .8em;
+    background: #41a739;
+}
+
+form label,
+form input {
+    display: block;
+    width: 66%;
+    margin: 0 0 0 17%
+}
+
+form input#login {
+    margin-bottom: 2em
+}
+
+form label#creer_cpte {
+    width: 100%;
+    margin: .8em 0 0 0;
+}
+
+form label#creer_cpte a {
+    font-size: 1em;
+    color: rgb(77, 74, 74);
+}
+
+form label {
+    font-style: oblique;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #0f6309;
+    padding: .7em 0 .6em 0
+}
+
+form input {
+    border-radius: 6px 6px;
+    border: 2px solid #17990e;
+    font-size: 1.3em;
+    color: #0f6309;
+    line-height: 1.5em;
+    padding: .4em
+}
+
+footer {
+    width: 100%;
+    height: 138px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 138px;
+    background: url(../img/leave.png) 0 0 no-repeat
+}
+
+.noDisplayInscription {
+    position: absolute;
+    top: 3em;
+    left: 10%;
+    display: none;
+    width: 74%;
+    height: auto;
+    padding: 2em 1em;
+    border-radius: 10px 10px;
+    border: 3px solid rgb(151, 212, 93);
+    background: #b8f08a;
+    opacity: 1;
+}

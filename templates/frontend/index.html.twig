@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Amap de Lons - {% block title %} {{ section_title }} {% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('frontend/css/login.css') }}">
+
+</head>
+
+<body id="login">
+
+    <section>
+
+        <div class="form_login">
+            <div id="escargot"></div>
+            <!-- <div id="cocinelle"></div> -->
+            <div id="form_content">
+                <form action="{{ path('default') }}" method="post">
+                    <label id="login" for="login">Votre identifiant:</label>
+                    <input type="text" id="login" name="_username" placeholder="saisir votre identifiant amap" required />
+                    <label name="passwd" for="passwd">Votre mot de passe:</label>
+                    <input type="password" id="passwd" name="_password" placeholder="ainsi que votre mot de passe" required />
+                    <button type="submit">envoyer</button>
+                    <label id="creer_cpte"><a href="#" title="lien: creer votre compte" onclick="openInscription()">Créer
+                            un compte Amapien</a></label>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="noDisplayInscription">
+        <div class="form_inscription">
+            <div id="escargot"></div>
+
+            {{ form_start(form, {'attr': {'class' : 'form_container'}}) }}
+            {{ form_row(form.nom, {'label': 'Nom', 'attr' : {'class' : ''}}) }}
+            {{ form_row(form.identifiant, {'label': 'Identifiant', 'attr' : {'class' : ''}}) }}
+            {{ form_row(form.email, {'label': 'Adresse e-mail', 'attr' : {'class' : ''}}) }}
+            {# {{ form_row(form.confirm_email, {'label': 'Confirmer votre e-mail', 'attr' : {'class' : ''}}) }} #}
+            {{ form_row(form.password, {'label': 'Mot de passe', 'attr' : {'class' : ''}}) }}
+            {# {{ form_row(form.confirm_password, {'label': 'Confirmer votre mot de passe', 'attr' : {'class' : ''}})
+            }} #}
+            <button type="submit">Envoyer</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <footer></footer>
+
+</body>
+
+</html>

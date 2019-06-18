@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Modifier superCategorie</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('/frontend/css/backend.css') }}">
+   
+    {% block stylesheets %}{% endblock %}
+</head>
+
+
+
+{% block body %}
+
+    <div id="superCatEdit">
+    <h1>Modifier superCategorie</h1>
+
+    {{ include('frontend/super_categorie/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+
+    {{ include('frontend/super_categorie/_delete_form.html.twig') }}
+
+    <a href="{{ path('super_categorie_index') }}">Retour à la liste</a>
+
+</div>
+{% endblock %}

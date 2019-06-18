@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+        <title>superCategorie</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="{{ asset('/frontend/css/backend.css') }}">
+       
+        {% block stylesheets %}{% endblock %}
+    </head>
+
+{% block body %}
+
+    <div id="superCatIndex">
+    <h1>Liste des superCategories</h1>
+
+    <a id="linkCreate" href="{{ path('super_categorie_new') }}">Créer une superCatégorie</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>UrlImg</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for super_categorie in super_categories %}
+            <tr>
+                <td>{{ super_categorie.id }}</td>
+                <td>{{ super_categorie.nom }}</td>
+                <td>{{ super_categorie.urlImg }}</td>
+                <td>
+                    <a href="{{ path('super_categorie_show', {'id': super_categorie.id}) }}">Voir</a>
+                    <a href="{{ path('super_categorie_edit', {'id': super_categorie.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

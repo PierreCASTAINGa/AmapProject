@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Amap de Lons - {% block title %} {% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="{{ asset('/frontend/css/main.css') }}">
+        {# <link rel="stylesheet" href="{{ asset('frontend/css/materialize.min.css') }}">
+        <script src="{{ asset('frontend/js/materialize.min.js') }}"></script> #}
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+
+        <div id="aside-menu">
+                <img id="logo" src="{{ asset('frontend/img/logo.png') }}">
+        
+                <div id="logout">
+                    <a id="getout" href="{{ path('secured_logout') }}" title="déconnectez-vous">Déconnexion</a>
+                    <p>Bonjour <span>{{ app.user.identifiant }}</span></p>
+                    <p>Vous êtez identifié(e) en tant que :<br> <span>{{ app.user.groupe }}</span><span class="noDisplay idUser"
+                            userId="{{ app.user.id }}"></span></p>
+                </div>
+        
+                <div class="aside-menu-bloc">
+                    <div id="menu_amapien">
+                        <h3>AMAPIEN</h3>
+                        <ul>
+                            <li><a href="{{ path('panier') }}" title="Choisir mes produits">Je choisis mes produits</a></li>
+                            <li><a href="{{ path('mes_contrats') }}" title="Ajouter, supprimer mes contrats">Je gére mes contrats</a></li>
+                            <li><a href="{{ path('ma_commande') }}" title="Valider définitivement ma commande">Je valide ma commande</a></li>
+                            <li style="text-align:center"># ~~~~ (-) ~~~~ #</li>
+                            <li><a href="#" title="Visualiser les dates de distribution">Dates de distribution</a></li>
+                            <li><a href="#" title="Vos infos personnelles et votre compte amapien">Mes infos personnelles</a></li>
+                        </ul>
+                    </div>
+                    {% if is_granted('ROLE_REFERENT') or is_granted('ROLE_ADMIN') %}
+                    <div id="menu_referent">
+                        <h3>REFERENT</h3>
+                        <ul>
+                            <li><a href="{{ path('contrats_a_valider') }}" title="Contrats à valider">Contrats à valider</a></li>
+                            <li><a href="#" title="Contrats validés">Contrats validés</a></li>
+                        </ul>
+                    </div>
+                    {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <div id="menu_admin">
+                        <h3>ADMIN</h3>
+                        <ul>
+                            <li><a href="#" title="Contrat à valider">Administrations des commandes</a></li>
+                        </ul>
+                    </div>
+                    {% endif %}
+        
+                </div>
+            </div>
+        {% endblock %}
+
+        <footer></footer>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

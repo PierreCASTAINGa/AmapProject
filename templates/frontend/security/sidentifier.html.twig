@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Amap de Lons - {% block title %} {{ section_title }} {% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('frontend/css/login.css') }}">
+
+</head>
+
+<body id="login">
+
+    <section>
+
+        <div class="form_login">
+            <div id="escargot"></div>
+            <!-- <div id="cocinelle"></div> -->
+            {% if error %}
+            <div style="background:red;color:white;font-size:1.3em;padding:.3em;margin:0 5em;">Mot de passe ou identifiant erroné ?</div>
+            {% endif %}
+            <div id="form_content">
+                <form action="{{ path('login') }}" method="post">
+                    <label id="login" for="login">Votre identifiant:</label>
+                    <input type="text" id="login" value="{{ lastUsername }}" name="_username" placeholder="saisir votre identifiant amap" required />
+                    <label name="passwd" for="passwd">Votre mot de passe:</label>
+                    <input type="password" id="passwd" name="_password" placeholder="ainsi que votre mot de passe" required />
+                    <button type="submit">envoyer</button>
+                    <label id="creer_cpte"><a href="{{ path('inscription') }}" title="lien: creer votre compte">Créer
+                            un compte Amapien</a></label>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer></footer>
+
+    {# <script src="{{ asset('frontend/js/inscription.js') }}"></script> #}
+</body>
+
+</html>
